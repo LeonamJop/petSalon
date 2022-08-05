@@ -7,7 +7,7 @@
     align-items: center;
 }
 
-.header > div {
+.header div {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -21,7 +21,7 @@
     background: transparent;
 }
 
-.header > button {
+.header button {
     background: transparent;
     color: var(--gray-700);
     border: none;
@@ -30,7 +30,7 @@
     align-items: center;
 }
 
-.header > button svg {
+.header button svg {
     background: transparent;
     margin-right: 0.5rem;
 }
