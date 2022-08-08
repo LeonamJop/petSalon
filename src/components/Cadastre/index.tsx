@@ -1,5 +1,6 @@
 import styles from './styles.module.css';
 import { ArrowRight } from "phosphor-react";
+import { Card } from '../Card';
 
 export function Cadastres() {
     return (
@@ -8,12 +9,12 @@ export function Cadastres() {
                 <div>
                     <h2>Cadastros recentes</h2>
                 </div>
-                <button title='Tela de cadastro'>
+                <button title='Ir para os cadastros'>
                     <ArrowRight size={20} />
                 </button>
             </div>
             <div className={styles.cardsCadastres}>
-                Cards
+                <Card/>
             </div>
         </div>
     )
