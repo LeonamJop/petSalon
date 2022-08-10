@@ -1,5 +1,6 @@
 .informationCadastres{
     width: 25rem;
+    height: 100%;
 }
 
 .cadastres {
@@ -37,7 +38,7 @@
 
 .cardsCadastres {
     width: 100%;
-    height: 31.25rem;
+    height: 100%;
     padding: 0.5rem;
     background: var(--white-300);
     border-radius: 0 0 0.5rem 0.5rem;
