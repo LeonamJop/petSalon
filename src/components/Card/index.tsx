@@ -3,23 +3,28 @@ import { Trash } from "phosphor-react";
 import { format } from 'date-fns'
 import ptBR from 'date-fns/locale/pt-BR';
 
-export type CardProps = {
+interface CardProps {
     id: string;
     name: string;
     petName: string;
     date: Date;
-    paymentStatus: "Pago" | "Pendente";
+    paymentStatus: string;
+    onDeleteCard: (card: string) => void;
 }
 
-export function Card({name,date,paymentStatus, petName}: CardProps) {
+export function Card({id, name,date,paymentStatus, petName, onDeleteCard}: CardProps) {
 
     const dateFormatted = format(date, "dd'/'MM'/'yyyy HH:mm", {
         locale: ptBR
     })
 
+    function handleDeleteCard() {
+        onDeleteCard(id);
+    }
+
     return (
         <div className={styles.cards}>
-            <div className={styles.content}>
+            <div id={id} className={styles.content}>
                 <p>Cliente: {name}</p>
                 <p>Data e hora: {dateFormatted}</p>
                 <p>Nome do Pet: {petName}</p>
@@ -28,6 +33,7 @@ export function Card({name,date,paymentStatus, petName}: CardProps) {
             <button
                 className={styles.deleteCard}
                 title="Deletar cadastro"
+                onClick={handleDeleteCard}
             >
                 <Trash size={20} />
             </button>
