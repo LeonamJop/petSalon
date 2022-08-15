@@ -4,3 +4,9 @@
     flex-direction: row;
     gap: 1.5rem;
 }
+
+.home > div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
