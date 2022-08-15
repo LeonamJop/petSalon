@@ -29,5 +29,5 @@ export function OptionsCadastres({title, content, switchToScreen}: OptionsCadast
             </div>
         </div>
 
-    )
+    );
 }

@@ -5,8 +5,7 @@
     gap: 1.5rem;
 }
 
-.home > div {
+.home div {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
 }
