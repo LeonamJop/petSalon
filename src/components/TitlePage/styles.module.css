@@ -21,9 +21,15 @@
     cursor: pointer;
 }
 
+.titlePage button :hover{
+    background: var(--white-400);
+    transition: 0.2s;
+}
+
 .titlePage button svg {
     display: flex;
     justify-content: center;
     align-items: center;
     background: none;
+    border-radius: 50%;
 }

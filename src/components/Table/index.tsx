@@ -7,13 +7,21 @@ interface tableProps {
     typeService: string;
 }
 
-export function Table({name, email, phoneNumber, typeService}: tableProps) {
+export function Table({ name, email, phoneNumber, typeService }: tableProps) {
+    
+    function handleOpenModal() {
+        
+    }
+    
     return (
-        <tr className={styles.tableClient}>
-            <td>{name}</td>
-            <td>{email}</td>
-            <td>{phoneNumber}</td>
-            <td>{typeService}</td>
-        </tr>
+            <tr
+                className={styles.tableClient}
+                onClick={handleOpenModal}    
+            >
+                <td>{name}</td>
+                <td>{email}</td>
+                <td>{phoneNumber}</td>
+                <td>{typeService}</td>
+            </tr>
     )
 }

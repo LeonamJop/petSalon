@@ -3,36 +3,54 @@ import { Header } from "../../components/Header";
 import { MagnifyingGlass } from "phosphor-react";
 import { TitlePage } from '../../components/TitlePage';
 import { Table } from '../../components/Table';
+import { v4 as uuid } from 'uuid';
+import { useMemo, useState } from 'react';
+import { OpenModal } from '../../components/OpenModal/openModal';
 
 const clients = [
     {
-        name: 'Leonam',
+        id: uuid(),
+        name: 'Leonam Silva',
         email: 'leonam@email.com',
         phoneNumber: '(99)9999-9999',
         typeService: 'Mensal'
     }, {
-        name: 'Maria',
+        id: uuid(),
+        name: 'Maria Pereira',
         email: 'maria@email.com',
         phoneNumber: '(99)9999-9999',
         typeService: 'Único'
     }, {
-        name: 'Maria',
-        email: 'maria@email.com',
+        id: uuid(),
+        name: 'João Carlos',
+        email: 'joao_caralos@email.com',
+        phoneNumber: '(99)9999-9999',
+        typeService: 'Mensal'
+    }, {
+        id: uuid(),
+        name: 'João da Silva',
+        email: 'joaoSilva@email.com',
         phoneNumber: '(99)9999-9999',
         typeService: 'Único'
     }, {
-        name: 'Maria',
-        email: 'maria@email.com',
+        id: uuid(),
+        name: 'Julia Macedo',
+        email: 'juliaMaistarde@email.com',
         phoneNumber: '(99)9999-9999',
-        typeService: 'Único'
+        typeService: 'Mensal'
     }
 ]
 
 export function RecordsClient() {
+    const [searchClients, setSearchClients] = useState('');
 
-    function handleClientSurvey() {
+    const lowerSearchClients = searchClients.toLowerCase();
 
-    }
+    const filteredClientsNames = useMemo(() => {
+        return (clients.filter(
+            (client) => client.name.toLowerCase().startsWith(lowerSearchClients)
+        ))
+    }, [searchClients]);
 
     return (
         <>
@@ -44,32 +62,38 @@ export function RecordsClient() {
                 <div className={styles.filter}>
                     <input
                         type="search"
+                        title='Digite o nome do cliente'
                         placeholder='Digite o nome do cliente'
+                        value={searchClients}
+                        onChange={(event) => setSearchClients(event.target.value)}
                     />
                     <button
                         title='Pesquisar'
-                        onClick={handleClientSurvey}
                     >
                         <MagnifyingGlass size={20} />
                     </button>
                 </div>
+                <OpenModal/>
                 <table className={styles.registersTable}>
-                    <tr className={styles.tableHeader}>
-                        <td>Nome</td>
-                        <td>Email</td>
-                        <td>Número</td>
-                        <td>Tipo de serviço</td>
-                    </tr>
-                    {clients.map(client => {
-                        return (
-                            <Table
-                                name={client.name}
-                                email={client.email}
-                                phoneNumber={client.phoneNumber}
-                                typeService={client.typeService}
-                            />
-                        )
-                    })}
+                    <tbody>
+                        <tr className={styles.tableHeader}>
+                            <td>Nome</td>
+                            <td>Email</td>
+                            <td>Número</td>
+                            <td>Tipo de serviço</td>
+                        </tr>
+                        {filteredClientsNames.map(client => {
+                            return (
+                                <Table
+                                    key={client.id}
+                                    name={client.name}
+                                    email={client.email}
+                                    phoneNumber={client.phoneNumber}
+                                    typeService={client.typeService}
+                                />
+                            )
+                        })}
+                    </tbody>
                 </table>
             </div>
         </>
