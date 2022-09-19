@@ -1,38 +1,21 @@
 import styles from './styles.module.css';
 import { Plus } from "phosphor-react";
 import ReactModal from 'react-modal';
-import { useState } from 'react';
+import * as Dialog from '@radix-ui/react-dialog';
 
 ReactModal.setAppElement('#root');
 
 export function OpenModal() {
-    const [modalIsOpen, setModalIsOpen] = useState(false);
 
-    function handleOpenModel() {
-        setModalIsOpen(true);
-    }
-
-    function handleCloseModel() {
-        setModalIsOpen(false)
-    }
     return (
         <div className={styles.modalRegister}>
             <div className={styles.buttonRegister}>
-                <button
+                <Dialog.Trigger
                     title='Cadastrar Cliente'
-                    onClick={handleOpenModel}
                 >
                     <Plus size={20} />
-                </button>
+                </Dialog.Trigger>
             </div>
-            <ReactModal
-                isOpen={modalIsOpen}
-                onRequestClose={handleCloseModel}
-            >
-                <div>
-                    <h1>Modal</h1>
-                </div>
-            </ReactModal>
         </div>
     )
 }

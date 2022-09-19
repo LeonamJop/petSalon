@@ -11,6 +11,7 @@
   "dependencies": {
     "@fullcalendar/daygrid": "^5.11.2",
     "@fullcalendar/react": "^5.11.2",
+    "@radix-ui/react-dialog": "^1.0.0",
     "@types/react-modal": "^3.13.1",
     "date-fns": "^2.29.1",
     "phosphor-react": "^1.4.1",

@@ -6,6 +6,8 @@ import { Table } from '../../components/Table';
 import { v4 as uuid } from 'uuid';
 import { useMemo, useState } from 'react';
 import { OpenModal } from '../../components/OpenModal/openModal';
+import * as Dialog from '@radix-ui/react-dialog';
+import { Modal } from '../../components/Modal';
 
 const clients = [
     {
@@ -23,7 +25,7 @@ const clients = [
     }, {
         id: uuid(),
         name: 'João Carlos',
-        email: 'joao_caralos@email.com',
+        email: 'joao_carlos@email.com',
         phoneNumber: '(99)9999-9999',
         typeService: 'Mensal'
     }, {
@@ -43,6 +45,7 @@ const clients = [
 
 export function RecordsClient() {
     const [searchClients, setSearchClients] = useState('');
+    const [clientList, setClientList] = useState(clients)
 
     const lowerSearchClients = searchClients.toLowerCase();
 
@@ -73,7 +76,10 @@ export function RecordsClient() {
                         <MagnifyingGlass size={20} />
                     </button>
                 </div>
-                <OpenModal/>
+                <Dialog.Root>
+                    <OpenModal />
+                    <Modal/>
+                </Dialog.Root>
                 <table className={styles.registersTable}>
                     <tbody>
                         <tr className={styles.tableHeader}>
