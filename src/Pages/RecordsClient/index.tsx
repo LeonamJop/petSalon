@@ -3,57 +3,42 @@ import { Header } from "../../components/Header";
 import { MagnifyingGlass } from "phosphor-react";
 import { TitlePage } from '../../components/TitlePage';
 import { Table } from '../../components/Table';
-import { v4 as uuid } from 'uuid';
-import { useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { OpenModal } from '../../components/OpenModal/openModal';
 import * as Dialog from '@radix-ui/react-dialog';
 import { Modal } from '../../components/Modal';
+import axios from 'axios';
 
-const clients = [
-    {
-        id: uuid(),
-        name: 'Leonam Silva',
-        email: 'leonam@email.com',
-        phoneNumber: '(99)9999-9999',
-        typeService: 'Mensal'
-    }, {
-        id: uuid(),
-        name: 'Maria Pereira',
-        email: 'maria@email.com',
-        phoneNumber: '(99)9999-9999',
-        typeService: 'Único'
-    }, {
-        id: uuid(),
-        name: 'João Carlos',
-        email: 'joao_carlos@email.com',
-        phoneNumber: '(99)9999-9999',
-        typeService: 'Mensal'
-    }, {
-        id: uuid(),
-        name: 'João da Silva',
-        email: 'joaoSilva@email.com',
-        phoneNumber: '(99)9999-9999',
-        typeService: 'Único'
-    }, {
-        id: uuid(),
-        name: 'Julia Macedo',
-        email: 'juliaMaistarde@email.com',
-        phoneNumber: '(99)9999-9999',
-        typeService: 'Mensal'
-    }
-]
+interface Client {
+    id: number;
+    external_id: string;
+    name: string,
+    cpf: string,
+    birth_date: string,
+    email: string,
+    telephone: string;
+    phone_number: string;
+    pet: []
+}
 
 export function RecordsClient() {
     const [searchClients, setSearchClients] = useState('');
-    const [clientList, setClientList] = useState(clients)
+    const [clients, setClients] = useState<Client[]>([]);
 
     const lowerSearchClients = searchClients.toLowerCase();
 
-    const filteredClientsNames = useMemo(() => {
-        return (clients.filter(
-            (client) => client.name.toLowerCase().startsWith(lowerSearchClients)
-        ))
-    }, [searchClients]);
+    // const filteredClientsNames = useMemo(() => {
+    //     return (clients.filter(
+    //         (client) => client.name.toLowerCase().startsWith(lowerSearchClients)
+    //     ))
+    // }, []);
+
+    useEffect(() => {
+        axios('https://petsalon-api.herokuapp.com/customer/')
+            .then(response => {
+                setClients(response.data);
+            })
+    }, [])
 
     return (
         <>
@@ -78,7 +63,7 @@ export function RecordsClient() {
                 </div>
                 <Dialog.Root>
                     <OpenModal />
-                    <Modal/>
+                    <Modal />
                 </Dialog.Root>
                 <table className={styles.registersTable}>
                     <tbody>
@@ -86,16 +71,14 @@ export function RecordsClient() {
                             <td>Nome</td>
                             <td>Email</td>
                             <td>Número</td>
-                            <td>Tipo de serviço</td>
                         </tr>
-                        {filteredClientsNames.map(client => {
+                        {clients.map(client => {
                             return (
                                 <Table
                                     key={client.id}
                                     name={client.name}
                                     email={client.email}
-                                    phoneNumber={client.phoneNumber}
-                                    typeService={client.typeService}
+                                    phoneNumber={client.phone_number}
                                 />
                             )
                         })}

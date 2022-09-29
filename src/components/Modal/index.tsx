@@ -3,7 +3,7 @@ import { X } from "phosphor-react";
 import * as Dialog from '@radix-ui/react-dialog';
 
 interface RecordsClientsProps {
-    
+
 }
 
 export function Modal() {
@@ -31,6 +31,7 @@ export function Modal() {
                                         Nome:
                                     </label>
                                     <input
+                                        name='name'
                                         id='name'
                                         type="text"
                                         placeholder='Digite o nome do cliente'
@@ -42,6 +43,7 @@ export function Modal() {
                                             CPF:
                                         </label>
                                         <input
+                                            name='cpf'
                                             id='cpf'
                                             type="text"
                                             placeholder='Ex: 123.123.123-00'
@@ -53,6 +55,7 @@ export function Modal() {
                                             Data de nascimento:
                                         </label>
                                         <input
+                                            name='birthDate'
                                             id="birthDate"
                                             type='date'
                                         />
@@ -64,6 +67,7 @@ export function Modal() {
                                 <div className={styles.clientInfo}>
                                     <label htmlFor="clientEmail">Email:</label>
                                     <input
+                                        name='email'
                                         id='clientEmail'
                                         type='email'
                                         placeholder='Ex: exemplo@email.com'
@@ -75,6 +79,7 @@ export function Modal() {
                                             Telefone:
                                         </label>
                                         <input
+                                            name='phoneNumber'
                                             id='phoneNumber'
                                             type='tel'
                                             maxLength={14}
@@ -86,6 +91,7 @@ export function Modal() {
                                             Telefone:
                                         </label>
                                         <input
+                                            name='phoneNumber2'
                                             id='phoneNumber2'
                                             type='tel'
                                             maxLength={15}
@@ -101,6 +107,7 @@ export function Modal() {
                                 <div className={styles.clientInfo}>
                                     <label htmlFor="street">Rua:</label>
                                     <input
+                                        name='street'
                                         id='street'
                                         type='text'
                                         placeholder='Digite o nome da rua'
@@ -110,6 +117,7 @@ export function Modal() {
                                     <div >
                                         <label htmlFor="district">Bairro:</label>
                                         <input
+                                            name='district'
                                             id='district'
                                             type='text'
                                             placeholder='Digite o Barrio'
@@ -118,6 +126,7 @@ export function Modal() {
                                     <div>
                                         <label htmlFor="city">Cidade:</label>
                                         <input
+                                            name='city'
                                             id='city'
                                             type='text'
                                             placeholder='Digite a Cidade'
@@ -130,6 +139,7 @@ export function Modal() {
                                 <div className={styles.clientInfo}>
                                     <label htmlFor="cep">CEP:</label>
                                     <input
+                                        name='cep'
                                         id='cep'
                                         type="text"
                                         maxLength={9}
@@ -140,6 +150,7 @@ export function Modal() {
                                     <div>
                                         <label htmlFor="houseNumber">Número da residencia:</label>
                                         <input
+                                            name='houseNumber'
                                             id='houseNumber'
                                             type="text"
                                             placeholder='Digite o número da residêcia'
@@ -156,7 +167,7 @@ export function Modal() {
                         </div>
                         <div className={styles.complementArea}>
                             <label htmlFor="complementArea">Complemento:</label>
-                            <textarea id="complementArea"></textarea>
+                            <textarea name='complement' id="complementArea"></textarea>
                         </div>
                     </form>
                     <footer className={styles.footer}>

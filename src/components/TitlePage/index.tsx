@@ -2,11 +2,11 @@ import styles from './styles.module.css';
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeft } from "phosphor-react";
 
-interface titlePageProps {
+interface TitlePageProps {
     titlePage: string
 }
 
-export function TitlePage({ titlePage }: titlePageProps) {
+export function TitlePage({ titlePage }: TitlePageProps) {
 
     const navigate = useNavigate();
 
