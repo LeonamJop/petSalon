@@ -1,28 +1,11 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { Sheduling } from '../../@types/sheduling';
 import { TableScheduling } from '../TableSchedulin';
 import styles from './styles.module.css';
 
-interface ShedulingProps {
-    id: number;
-    external_id: string;
-    bath: boolean;
-    clipping: string;
-    hydration: boolean;
-    clearance: boolean;
-    brush_teeth: boolean;
-    cut_nails: boolean;
-    transport: boolean;
-    date_appointment: string;
-    hour_appointment: string;
-    payment: number;
-    pet: {
-        name: string;
-    };
-}
-
 export function Calendar() {
-    const [schedulings, setSchedulings] = useState<ShedulingProps[]>([])
+    const [schedulings, setSchedulings] = useState<Sheduling[]>([])
 
     useEffect(() => {
         axios('https://petsalon-api.herokuapp.com/scheduling/')

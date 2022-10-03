@@ -2,10 +2,6 @@ import styles from './styles.module.css';
 import { X } from "phosphor-react";
 import * as Dialog from '@radix-ui/react-dialog';
 
-interface RecordsClientsProps {
-
-}
-
 export function ModalAdress() {
     return (
         <Dialog.Portal>

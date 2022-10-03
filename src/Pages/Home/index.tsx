@@ -19,7 +19,6 @@ const optionsCadastres = [
     }
 ]
 
-
 export function Home() {
     return (
         <>

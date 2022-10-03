@@ -8,18 +8,7 @@ import { OpenModal } from '../../components/OpenModal/openModal';
 import * as Dialog from '@radix-ui/react-dialog';
 import { ModalClient } from '../../components/ModalClient';
 import axios from 'axios';
-
-interface Client {
-    id: number;
-    external_id: string;
-    name: string,
-    cpf: string,
-    birth_date: string,
-    email: string,
-    telephone: string;
-    phone_number: string;
-    pet: []
-}
+import { Client } from '../../@types/clients';
 
 export function RecordsClient() {
     const [searchClients, setSearchClients] = useState('');
