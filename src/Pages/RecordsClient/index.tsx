@@ -2,11 +2,11 @@ import styles from './styles.module.css';
 import { Header } from "../../components/Header";
 import { MagnifyingGlass } from "phosphor-react";
 import { TitlePage } from '../../components/TitlePage';
-import { Table } from '../../components/Table';
+import { TableClient } from '../../components/TableClient';
 import { useEffect, useState } from 'react';
 import { OpenModal } from '../../components/OpenModal/openModal';
 import * as Dialog from '@radix-ui/react-dialog';
-import { Modal } from '../../components/Modal';
+import { ModalClient } from '../../components/ModalClient';
 import axios from 'axios';
 
 interface Client {
@@ -25,7 +25,7 @@ export function RecordsClient() {
     const [searchClients, setSearchClients] = useState('');
     const [clients, setClients] = useState<Client[]>([]);
 
-    const lowerSearchClients = searchClients.toLowerCase();
+    // const lowerSearchClients = searchClients.toLowerCase();
 
     // const filteredClientsNames = useMemo(() => {
     //     return (clients.filter(
@@ -63,7 +63,7 @@ export function RecordsClient() {
                 </div>
                 <Dialog.Root>
                     <OpenModal />
-                    <Modal />
+                    <ModalClient />
                 </Dialog.Root>
                 <table className={styles.registersTable}>
                     <tbody>
@@ -74,7 +74,7 @@ export function RecordsClient() {
                         </tr>
                         {clients.map(client => {
                             return (
-                                <Table
+                                <TableClient
                                     key={client.id}
                                     name={client.name}
                                     email={client.email}

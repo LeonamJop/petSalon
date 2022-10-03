@@ -18,6 +18,7 @@
     "phosphor-react": "^1.4.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-imask": "^6.4.3",
     "react-modal": "^3.15.1",
     "react-router-dom": "^6.3.0",
     "uuid": "^8.3.2"

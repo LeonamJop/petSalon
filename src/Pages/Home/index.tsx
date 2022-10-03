@@ -9,9 +9,13 @@ const optionsCadastres = [
         content: 'Possibilita criar, editar ou excluir um cadastro de cliente.',
         switchToScreen: '/records/clients'
     }, {
-        title: 'Cadastro de Serviço',
-        content: 'Possibilita criar, editar ou excluir um cadastro de serviço.',
-        switchToScreen: '/records/services'
+        title: 'Cadastro de Pets',
+        content: 'Possibilita criar, editar ou excluir um cadastro de pet.',
+        switchToScreen: '/records/pet'
+    }, {
+        title: 'Cadastro de Endereço',
+        content: 'Possibilita criar, editar ou excluir um cadastro de endereço.',
+        switchToScreen: '/records/address'
     }
 ]
 
@@ -21,7 +25,7 @@ export function Home() {
         <>
             <Header />
             <div className={styles.home}>
-                <div>
+                <div className={styles.optionCadastre}>
                     {optionsCadastres.map(optionCadastre => {
                         return (
                             <OptionsCadastres

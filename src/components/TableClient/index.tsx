@@ -1,13 +1,12 @@
 import styles from './styles.module.css';
 
-interface TableProps {
+interface TableClientProps {
     name: string;
     email: string;
     phoneNumber: string;
 }
 
-export function Table({ name, email, phoneNumber }: TableProps) {
-    
+export function TableClient({ name, email, phoneNumber }: TableClientProps) {
     
     return (
             <tr

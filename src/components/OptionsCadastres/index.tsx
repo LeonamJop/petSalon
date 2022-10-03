@@ -7,7 +7,7 @@ interface OptionsCadastresProps {
     switchToScreen: string;
 }
 
-export function OptionsCadastres({title, content, switchToScreen}: OptionsCadastresProps) {
+export function OptionsCadastres({ title, content, switchToScreen }: OptionsCadastresProps) {
     const navigate = useNavigate();
 
     function handleScreenSwitching() {

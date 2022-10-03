@@ -6,7 +6,7 @@ interface RecordsClientsProps {
 
 }
 
-export function Modal() {
+export function ModalAdress() {
     return (
         <Dialog.Portal>
             <Dialog.Overlay className={styles.overlay}>
@@ -23,84 +23,6 @@ export function Modal() {
                                 />
                             </Dialog.Close>
                         </div>
-                        <h1>Dados do Cliente</h1>
-                        <div className={styles.personalData}>
-                            <div>
-                                <div className={styles.clientInfo}>
-                                    <label htmlFor='name'>
-                                        Nome:
-                                    </label>
-                                    <input
-                                        name='name'
-                                        id='name'
-                                        type="text"
-                                        placeholder='Digite o nome do cliente'
-                                    />
-                                </div>
-                                <div className={styles.personalDocument}>
-                                    <div>
-                                        <label htmlFor="cpf">
-                                            CPF:
-                                        </label>
-                                        <input
-                                            name='cpf'
-                                            id='cpf'
-                                            type="text"
-                                            placeholder='Ex: 123.123.123-00'
-                                            maxLength={14}
-                                        />
-                                    </div>
-                                    <div>
-                                        <label htmlFor="birthDate">
-                                            Data de nascimento:
-                                        </label>
-                                        <input
-                                            name='birthDate'
-                                            id="birthDate"
-                                            type='date'
-                                        />
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div>
-                                <div className={styles.clientInfo}>
-                                    <label htmlFor="clientEmail">Email:</label>
-                                    <input
-                                        name='email'
-                                        id='clientEmail'
-                                        type='email'
-                                        placeholder='Ex: exemplo@email.com'
-                                    />
-                                </div>
-                                <div className={styles.personalDocument}>
-                                    <div>
-                                        <label htmlFor="phoneNumber">
-                                            Telefone:
-                                        </label>
-                                        <input
-                                            name='phoneNumber'
-                                            id='phoneNumber'
-                                            type='tel'
-                                            maxLength={14}
-                                            placeholder="Ex: (00) 0 0000-0000"
-                                        />
-                                    </div>
-                                    <div>
-                                        <label htmlFor="phoneNumber2">
-                                            Telefone:
-                                        </label>
-                                        <input
-                                            name='phoneNumber2'
-                                            id='phoneNumber2'
-                                            type='tel'
-                                            maxLength={15}
-                                            placeholder="Ex: (00) 0000-0000"
-                                        />
-                                    </div>
-                                </div>
-                            </div>
-                        </div >
                         <h1>Endereço</h1>
                         <div className={styles.personalData}>
                             <div>
