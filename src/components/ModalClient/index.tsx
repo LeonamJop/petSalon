@@ -45,7 +45,7 @@ export function ModalClient() {
         }
 
         try {
-            await axios.post('https://petsalon-api.herokuapp.com/customer/', {
+            await axios.post('http://localhost:8080/customer/create', {
                 name: data.name,
                 cpf: data.cpf,
                 birth_date: data.birth_date,

@@ -1,3 +1,4 @@
+import { TableSchedulinContainer } from './styles';
 import styles from './styles.module.css';
 
 interface TableProps {
@@ -10,13 +11,11 @@ interface TableProps {
 export function TableScheduling({ pet, clipping, date_appointment, hour_appointment }: TableProps) {
     
     return (
-            <tr
-                className={styles.tableScheduling}
-            >
+            <TableSchedulinContainer>
                 <td>{pet}</td>
                 <td>{clipping}</td>
                 <td>{date_appointment}</td>
                 <td>{hour_appointment}</td>
-            </tr>
+            </TableSchedulinContainer>
     )
 }

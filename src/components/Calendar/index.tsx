@@ -2,27 +2,28 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Sheduling } from '../../@types/sheduling';
 import { TableScheduling } from '../TableSchedulin';
+import { AgendContainer, CalendarContainer, CalendarHeader, TableContainer } from './styles';
 import styles from './styles.module.css';
 
 export function Calendar() {
     const [schedulings, setSchedulings] = useState<Sheduling[]>([])
 
     useEffect(() => {
-        axios('https://petsalon-api.herokuapp.com/scheduling/')
+        axios('http://localhost:8080/order/all')
             .then(response => {
                 setSchedulings(response.data);
             })
     }, [])
 
     return (
-        <div className={styles.agend}>
-            <div className={styles.calendarHeader}>
+        <AgendContainer>
+            <CalendarHeader>
                 <strong>Agenda</strong>
-            </div>
-            <div className={styles.calendar}>
-            <table className={styles.registersTable}>
+            </CalendarHeader>
+            <CalendarContainer>
+                <TableContainer>
                     <tbody>
-                        <tr className={styles.tableHeader}>
+                        <tr>
                             <td>Pet</td>
                             <td>Serviço</td>
                             <td>Data</td>
@@ -40,8 +41,8 @@ export function Calendar() {
                             )
                         })}
                     </tbody>
-                </table>
-            </div>
-        </div>
+                </TableContainer>
+            </CalendarContainer>
+        </AgendContainer>
     )
 }

@@ -1,7 +1,7 @@
-import styles from './styles.module.css'
 import logo from '../../assets/petLogo.png'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+import { ButtonLogin, CredentialsContainer, LoginContainer } from './styles';
 
 export function Login() {
     const [userLogin, setUserLogin] = useState('');
@@ -32,13 +32,13 @@ export function Login() {
     }
 
     return (
-        <div className={styles.login}>
+        <LoginContainer>
             <img src={logo} alt="Logo da pet shop" draggable="false"/>
             <h1>Roana Pet Salon</h1>
 
-            <div className={styles.credentials}>
+            <CredentialsContainer>
 
-                <div className={styles.user}>
+                <div>
                     <label htmlFor="user">Login</label>
                     <input
                         id='user'
@@ -48,7 +48,7 @@ export function Login() {
                     />
                 </div>
 
-                <div className={styles.password}>
+                <div>
                     <label htmlFor="password">Senha</label>
                     <input
                         id='password'
@@ -58,13 +58,12 @@ export function Login() {
                     />
                 </div>
 
-            </div>
-            <button
-                className={styles.buttonLogin}
+            </CredentialsContainer>
+            <ButtonLogin
                 onClick={handleCredentials}
             >
                 Entrar
-            </button>
-        </div>
+            </ButtonLogin>
+        </LoginContainer>
     )
 }

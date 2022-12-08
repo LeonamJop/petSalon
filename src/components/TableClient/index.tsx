@@ -1,4 +1,4 @@
-import styles from './styles.module.css';
+import { TableClientContainer } from './styles';
 
 interface TableClientProps {
     name: string;
@@ -9,12 +9,10 @@ interface TableClientProps {
 export function TableClient({ name, email, phoneNumber }: TableClientProps) {
     
     return (
-            <tr
-                className={styles.tableClient}
-            >
-                <td>{name}</td>
-                <td>{email}</td>
-                <td>{phoneNumber}</td>
-            </tr>
+        <TableClientContainer>
+            <td>{name}</td>
+            <td>{email}</td>
+            <td>{phoneNumber}</td>
+        </TableClientContainer>
     )
 }

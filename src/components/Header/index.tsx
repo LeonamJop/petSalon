@@ -1,25 +1,35 @@
-import styles from './styles.module.css';
-import { SignOut } from 'phosphor-react';
-import { useNavigate } from 'react-router-dom';
+import { HeaderContainer } from './styles'
+import { House, PawPrint, SignOut, Users } from 'phosphor-react';
+import { NavLink, Outlet } from 'react-router-dom';
 
 export function Header() {
-    const navigate = useNavigate();
-
-    function handleLogout() {
-        navigate("/Login")
-    }
-
     return (
-        <header className={styles.header}>
-            <div>
-                <h1>Roana Pet Salon</h1>
-            </div>
-            <button
-                title='Sair'
-                onClick={handleLogout}
-            >
-                <SignOut size={30} />
-            </button>
-        </header>
+        <>
+            <HeaderContainer>
+                <div>
+                    <h1 >Roana Pet Salon</h1>
+                </div>
+
+                <nav>
+                    <NavLink to="/home" title='Início'>
+                        <House size={30} />
+                    </NavLink>
+
+                    <NavLink to="/clients" title='Cadastros de usuário'>
+                        <Users size={30} />
+                    </NavLink>
+
+                    <NavLink to="/pets" title='Cadastros de pets'>
+                        <PawPrint size={30} />
+                    </NavLink>
+
+                    <NavLink to="/login" title='Sair'>
+                        <SignOut size={30} />
+                    </NavLink>
+
+                </nav>
+            </HeaderContainer>
+            <Outlet />
+        </>
     )
 }

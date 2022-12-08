@@ -1,24 +1,12 @@
 import './global.css'
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-
-import  { Login }  from './Pages/Login';
-import { Home } from './Pages/Home';
-import { RecordsClient } from './Pages/RecordsClient';
+import { BrowserRouter } from "react-router-dom";
+import { Router } from './Router';
 
 
-function App() {
+export function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/home" element={<Home/>}/>
-        <Route path="/records/clients" element={<RecordsClient/>}/>
-        {/* <Route path="/records/services" element={<Records/>}/> */}
-        <Route path="*" element={<Navigate to="/login"/>} />
-      </Routes>
+      <Router/>
     </BrowserRouter>
   )
 }
-
-export default App
